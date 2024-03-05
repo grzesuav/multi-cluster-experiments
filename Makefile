@@ -26,11 +26,11 @@ CONTROLLER_GEN ?= $(LOCALBIN)/controller-gen
 
 .PHONY: manifests
 manifests: controller-gen ## Generate CustomResourceDefinition objects.
-	pushd pkg/api; $(CONTROLLER_GEN) crd paths="./..." output:crd:artifacts:config=../manifests; popd
+	$(CONTROLLER_GEN) crd:headerFile="hack/boilerplate.go.txt",year=2024 paths="./pkg/api/..." output:dir="."
 
 .PHONY: generate
 generate: controller-gen ## Generate code containing DeepCopy, DeepCopyInto, and DeepCopyObject method implementations.
-	pushd pkg/api; $(CONTROLLER_GEN) object paths="./..."; popd
+	$(CONTROLLER_GEN) object:headerFile="hack/boilerplate.go.txt",year=2024 paths="./pkg/api/..."
 
 
 .PHONY: controller-gen
