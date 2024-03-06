@@ -7,7 +7,7 @@ import metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 type Clusters struct {
 	metav1.TypeMeta   `json:",inline"`
-	metav1.ObjectMeta `json:"metadata"`
+	metav1.ObjectMeta `json:",inline"`
 	Clusters          []Cluster `json:"clusters,omitempty"`
 }
 
