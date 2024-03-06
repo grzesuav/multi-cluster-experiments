@@ -1,5 +1,5 @@
 // +kubebuilder:object:generate=true
-// +groupName=multiclusterexperiment
+// +groupName=multiclusterexperiments
 package v1alpha1
 
 import (
